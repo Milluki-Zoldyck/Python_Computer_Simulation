@@ -1,1 +1,35 @@
+import numpy as np
+import scipy as sp
+import matplotlib.pyplot as plt
 
+x = np.linspace(-3, 3, 20)
+y1 = x
+y2 = x ** 2
+y3 = x ** 3
+y4 = x ** 4
+
+# 一つのグラフに一つの座標があり、複数の波形のプロット
+fig = plt.subplots(figsize=(10, 3))
+plt.plot(x, y2, c='b', label='y2')
+plt.plot(x, y3, c='r', label = 'y1', linestyle='dashed')
+
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Example')
+plt.grid()
+plt.legend(loc='lower right')
+plt.show()
+
+# 一つのグラフに四つの座標があり、それぞれ一つのプロット
+fig, axs = plt.subplots(nrows=2, ncols=2, figsize=(12, 8))
+
+axs[0, 0].plot(x, y1, label='y1')
+axs[0, 1].plot(x, y2)
+axs[1, 0].plot(x, y3)
+axs[1, 1].plot(x, y4)
+
+axs[0, 0].set_xlabel('x')
+axs[0, 0].set_ylabel('y')
+axs[0, 0].grid()
+axs[0, 0].legend()
+plt.show()
